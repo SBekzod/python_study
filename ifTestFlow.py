@@ -1,14 +1,12 @@
-if not True:
-    print('Passed here as not true')
+person = 'Morgan'
+animal = 'lian'
+while True:
+    letter = input('Please enter just one letter: ')
+    if letter in animal:
+        print('Letter {0} is inside of the name of animal variable'.format(letter))
+    elif letter in person:
+        print('Letter {0} is inside of the name of person variable'.format(letter))
+    else:
+        print('NONE of {0} here'.format(letter))
 
-if not False:
-    print('Passed here as not False')
 
-if bool(''):
-    print("Passed here as '' ")
-
-if bool(5):
-    print("Passed here as 5 ")
-
-if bool(0):
-    print('Passed here as 0 ')
