@@ -8,3 +8,4 @@ while chosen_direction not in available_directions:
         break
 else:
     print('You are on your way to {0}, congrats bro'.format(chosen_direction))
+
