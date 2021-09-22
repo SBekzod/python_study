@@ -1,5 +1,5 @@
 person = 'Morgan'
-animal = 'lian'
+animal = 'lion'
 while True:
     letter = input('Please enter just one letter: ')
     if letter in animal:

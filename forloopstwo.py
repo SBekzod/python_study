@@ -11,7 +11,7 @@ new_numb = int(clean_number)
 print('New number equal to {0}'.format(new_numb))
 
 # using array instead of range
-for state in ['hello', 'hi', 'how do you do?']:
+for state in ['hello', 'hi', 'how do you do?', 5]:
     print('The state equals to : {0}'.format(state))
 
 # three parametric range is used
