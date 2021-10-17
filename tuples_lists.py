@@ -6,3 +6,7 @@ my_list.append('uzbek')
 
 print('This is tuple: {0}'.format(my_tuple))
 print('This is a list: {0}'.format(my_list))
+
+name, year, state, status = my_tuple
+print(name)
+print(year)
