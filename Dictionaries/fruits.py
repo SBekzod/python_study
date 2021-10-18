@@ -14,15 +14,17 @@ print(fruits)
 # print('THE FRUITS FOUR:')
 # print(fruits)
 
-while False:
+while True:
     search = input('Type the fruit name here: ')
     if search == 'quit':
         break
-    if search in fruits:
-        result = fruits.get(search)
-        print(result)
-    else:
-        print('There is no fruit like than on fruits dictionary')
+    # if search in fruits:
+    #     result = fruits.get(search)
+    #     print(result)
+    # else:
+    #     print('There is no fruit like than on fruits dictionary')
+    result = fruits.get(search, 'we do not have this fruit inside of our dictionary')
+    print(result)
 
 
 
