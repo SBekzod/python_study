@@ -1,4 +1,6 @@
 class Person:
+    position = 'user'
+    __property = 500000
 
     def __init__(self, name, age, nation, is_married, secrets):
         self.name = name
@@ -28,15 +30,27 @@ class Person:
         print('Message is changed into {0}'.format(self.__secret_message))
         return self.__secret_message
 
+    def please_change_message(self, new_secrets):
+        self.__change_message(new_secrets)
+        return self.__secret_message
+
+    def change_position_to_admin(self):
+        self.position = 'admin'
+
 
 person = Person("David", 32, 'uzbek', True, 'apple')
 print('=' * 41)
+print('person position: {0}'.format(person.position))
+# print('person property: {0}'.format(person.__property))              # do not reach
 person.make_greeting()
 print('=' * 41)
 person.change_your_name('Patrick')
 print('=' * 41)
 person.make_greeting()
-print()
+print('=' * 41)
+print('Initial position: {0}'.format(person.position))
+person.change_position_to_admin()
+print('Position after change: {0}'.format(person.position))
 print()
 
 print('**** second phase started **** ')
@@ -45,3 +59,4 @@ print(person.name)                   # name is obtainable
 
 print('The secret message is {0}'.format(person.reveal_message()))  # name is obtainable
 # print(person.__change_message('cherry'))  # is not achievable
+person.please_change_message('cherry')  # do reach
