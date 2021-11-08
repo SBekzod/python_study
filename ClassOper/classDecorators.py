@@ -25,6 +25,14 @@ class Person:
     def named(self):
         del self.__name
 
+    @classmethod
+    def get_property(cls):
+        print('The class initial state variable {0}'.format(cls.__position))
+
+    @staticmethod
+    def get_pure_command():
+        print('Dear class breeze with fresh air')
+
 
 person = Person("David", 32, 'uzbek')
 print('=' * 41)
@@ -37,9 +45,17 @@ print(answer_two)
 
 print('=' * 41)
 
-# simple alternative way
+# PROPERTY DECORATORS
 print(person.named)
 person.named = 'Marcos'
 print(person.named)
 del person.named
 # print(person.named)         # will not reach because of deletion
+print()
+
+# CLASS DECORATORS
+print('=' * 41)
+print('=' * 41)
+Person.get_property()
+Person.get_pure_command()
+
