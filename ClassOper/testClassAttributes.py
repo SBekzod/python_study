@@ -1,7 +1,7 @@
 class Person:
     __position = 'user'
     __property = 500000
-    friend = 'oop'
+    friend = 'fop'
 
     def __init__(self, name, age, nation):
         self.__name = name
@@ -35,28 +35,13 @@ class Person:
         print('Dear class breeze with fresh air')
 
 
-person = Person("David", 32, 'uzbek')
-print('=' * 41)
+per_one = Person("David", 32, 'uzbek')
+per_two = Person("Tina", 32, 'korean')
+print(per_one.friend)
+print(per_two.friend)
 
-# traditional way
-answer_one = person.say_name()
-print(answer_one)
-answer_two = person.change_your_name('Erick')
-print(answer_two)
-
-print('=' * 41)
-
-# PROPERTY DECORATORS
-print(person.named)
-person.named = 'Marcos'
-print(person.named)
-del person.named
-# print(person.named)         # will not reach because of deletion
-print()
-
-# CLASS DECORATORS
-print('=' * 41)
-print('=' * 41)
-Person.get_property()
-Person.get_pure_command()
+print('=' * 40)
+Person.friend = 'oop'
+print(per_one.friend)
+print(per_two.friend)
 
