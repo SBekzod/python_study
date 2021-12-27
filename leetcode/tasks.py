@@ -64,42 +64,94 @@
 # C can be placed before D (500) and M (1000) to make 400 and 900.
 
 
+# class Solution:
+#     def longestCommonPrefix(self, strs: list[str]) -> str:
+#         size = len(strs)
+#         f_word = strs[0]
+#         if size == 1:
+#             return f_word
+#         order = -1
+#         move = True
+#
+#         for i in range(0, len(f_word)):
+#             for ow in range(1, size):
+#                 if len(strs[ow]) < i + 1:
+#                     move = False
+#                     break
+#                 elif f_word[i] != strs[ow][i]:
+#                     move = False
+#                     break
+#                 else:
+#                     continue
+#             order = i
+#             if move is False:
+#                 order -= 1
+#                 print(f'this is the max order reached before break : {order}')
+#                 break
+#         else:
+#             print(f'Order reached : {order}')
+#
+#         if order == -1:
+#             return ""
+#         else:
+#             return f_word[0:order + 1]
+#
+#
+# obj = Solution()
+# # target = obj.longestCommonPrefix(["a", "ac"])
+# # target = obj.longestCommonPrefix(["ab", "a"])
+# # target = obj.longestCommonPrefix(["flower", "flower", "flower"])
+# target = obj.longestCommonPrefix(["flower", "flow", "flight"])
+# print(f'The searching part of word equals to {target}')
+
+
 class Solution:
-    def longestCommonPrefix(self, strs: list[str]) -> str:
-        size = len(strs)
-        f_word = strs[0]
-        if size == 1:
-            return f_word
-        order = -1
-        move = True
-
-        for i in range(0, len(f_word)):
-            for ow in range(1, size):
-                if len(strs[ow]) < i + 1:
-                    move = False
-                    break
-                elif f_word[i] != strs[ow][i]:
-                    move = False
-                    break
-                else:
-                    continue
-            order = i
-            if move is False:
-                order -= 1
-                print(f'this is the max order reached before break : {order}')
-                break
-        else:
-            print(f'Order reached : {order}')
-
-        if order == -1:
-            return ""
-        else:
-            return f_word[0:order + 1]
+    def isValid(self, s: str) -> bool:
+        s_list = list(s)
+        if len(s_list) % 2 != 0:
+            print(f'the string is not given in pairs')
+            return False
+        dictionary = {"{": 0, "[": 0, "(": 0, ")": 0, "]": 0, "}": 0}
+        for i in s_list:
+            dictionary[i] += 1
+            if dictionary["{"] < dictionary["}"] \
+                    or dictionary["["] < dictionary["]"] \
+                    or dictionary["("] < dictionary[")"]:
+                return False
+        if dictionary["{"] != dictionary["}"] \
+                or dictionary["["] != dictionary["]"] \
+                or dictionary["("] != dictionary[")"]:
+            return False
+        return True
 
 
 obj = Solution()
-# target = obj.longestCommonPrefix(["a", "ac"])
-# target = obj.longestCommonPrefix(["ab", "a"])
-# target = obj.longestCommonPrefix(["flower", "flower", "flower"])
-target = obj.longestCommonPrefix(["flower", "flow", "flight"])
-print(f'The searching part of word equals to {target}')
+print('=' * 40)
+result = obj.isValid('([{}])')
+print(f'The answer comes as being {result}')
+
+print('=' * 40)
+result = obj.isValid('()[]')
+print(f'The answer comes as being {result}')
+
+print('=' * 40)
+result = obj.isValid('{}[]')
+print(f'The answer comes as being {result}')
+
+print('=' * 40)
+result = obj.isValid("(]")
+print(f'The answer comes as being {result}')
+
+print('=' * 40)
+result = obj.isValid("([)]")
+print(f'The answer comes as being {result}')
+
+print('=' * 40)
+result = obj.isValid("(){}}{")
+print(f'The answer comes as being {result}')
+
+print('=' * 40)
+result = obj.isValid("(([]){})")
+print(f'The answer comes as being {result}')
+
+
